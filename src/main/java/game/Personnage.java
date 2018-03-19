@@ -2,25 +2,43 @@ package game;
 
 public abstract class Personnage {
     protected String name = "none";
-    protected String img = "url";
+    protected String img = "No image ref";
     protected int life = 100;
     protected int attack = 10;
-
+    private String[] arme = new String[3];
+    private int[] force = new int[3];
+    private int armIndex = 0;
     
     public void setName(String userName) {
         this.name = userName;
-    }
-
-    public void setImg(String imageLink) {
-        this.img = imageLink;
     }
 
     public String getName() {
         return this.name;
     }
 
+    public void setImg(String imageLink) {
+        this.img = imageLink;
+    }
+
+    public String getImage() {
+        return this.img;
+    }
+    
+    public void setLife(int newLife) {
+        this.life = newLife;
+    }
+
     public int getLife() {
         return this.life;
+    }
+
+    public void setAttack(int newAttack) {
+        this.attack = newAttack;
+    }
+
+    public int getAttack() {
+        return this.attack;
     }
 
     public void decreaseLife(int attackPower) {
@@ -34,6 +52,25 @@ public abstract class Personnage {
         this.life += energy; 
         if (this.life > 100) {
             this.life = 100;
+        }
+    }
+
+    public String toString() {
+        return "Name : " + this.name + 
+        " Image : " + this.img + 
+        " Life : " + this.life + 
+        " Attack : " + this.attack +
+        " Arme 1 nom: " + this.arme[0] +
+        " Arme 1 force: " + this.arme[0];
+    }
+
+    public void addWeapon(String weaponName, int weaponPower) {
+        this.arme[armIndex] = weaponName;
+        this.force[armIndex] = weaponPower;
+        armIndex++;
+        if (armIndex > 3) {
+            armIndex = 0;
+            System.out.println("Vous avez Ateint le maximum d'armes");
         }
     }
 }

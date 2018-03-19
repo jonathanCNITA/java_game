@@ -11,8 +11,8 @@ public class Game {
         
         System.out.println("Name of the warrior: ");
         String warriorName = sc.nextLine();
-        Personnage warrior1 = new Warrior();
-        warrior1.setName(warriorName);
+        Personnage warrior1 = new Warrior(warriorName);
+        //warrior1.setName(warriorName);
         System.out.println("the warrior is " + warrior1.getName());
         
         System.out.println("------------------------------");

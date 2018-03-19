@@ -5,8 +5,8 @@ public abstract class Personnage {
     protected String img = "url";
     protected int life = 100;
     protected int attack = 10;
-    
 
+    
     public void setName(String userName) {
         this.name = userName;
     }

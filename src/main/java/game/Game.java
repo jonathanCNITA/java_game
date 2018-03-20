@@ -9,46 +9,46 @@ public class Game {
         Scanner scannerInput = new Scanner(System.in);
         ArrayList<Personnage> player = new ArrayList<Personnage>();
         String userChoice;
+        
+        Boolean game = true;
+        Integer itemNum = 0;
 
-        Boolean custom = true;
-        int itemNum = 0;
 
-        while(true) {
-            custom = true; 
-            System.out.println("Choisissez un personnage !" +"(" + itemNum + ")");
+        while(game) {
+            
+            System.out.println("Choisissez un personnage !" +"(" + player.size() + ")");
             System.out.println("1 -Warrior 2 -Magician");
             userChoice = scannerInput.nextLine();
 
             if(userChoice.equals("1") ) {
                 player.add(new Warrior());
                 System.out.println("new warrior created.");
-            } else {
+            } else if(userChoice.equals("2") ){
                 player.add(new Magician());
                 System.out.println("new magician created.");
+            } else {
+                System.out.println("Aucun type de personnage selectioné");
             }
-            while(custom){
-                System.out.println("Choisissez une option !");
-                System.out.println("1-Voir 2-Modifier 3-Attaquer 4-ajouter une arme");
+            Boolean customPerso = true;
+            while(customPerso){
+                System.out.println("Choisissez une option !\n1-Voir 2-Modifier 3-Attaquer 4-ajouter une arme");
                 userChoice = scannerInput.nextLine();
             
                 if(userChoice.equals("1")){
                     System.out.println(player.get(itemNum).toString());
                 } else if (userChoice.equals("2")) {
+
                     System.out.println("Choisissez un nom:");
-                    userChoice = scannerInput.nextLine();
-                    player.get(itemNum).setName(userChoice);
+                    player.get(itemNum).setName(scannerInput.nextLine());
             
                     System.out.println("Choisissez une image (lien Url):");
-                    userChoice = scannerInput.nextLine();
-                    player.get(itemNum).setImg(userChoice);
+                    player.get(itemNum).setImg(scannerInput.nextLine());
             
                     System.out.println("Choisissez votre niveau de vie:");
-                    userChoice = scannerInput.nextLine();
-                    player.get(itemNum).setLife(Integer.parseInt(userChoice));
+                    player.get(itemNum).setLife(Integer.parseInt(scannerInput.nextLine()));
             
                     System.out.println("Choisissez votre force d'attaque:");
-                    userChoice = scannerInput.nextLine();
-                    player.get(itemNum).setAttack(Integer.parseInt(userChoice));
+                    player.get(itemNum).setAttack(Integer.parseInt(scannerInput.nextLine()));
 
                     System.out.println(player.get(itemNum).toString());
                 } else if(userChoice.equals("3")) {
@@ -66,16 +66,25 @@ public class Game {
                 userChoice = scannerInput.nextLine();
                 if(userChoice.equals("1")) {
                     itemNum++;
-                    custom = false;
-                } else if(userChoice.equals("2")){
-                    System.out.println("//////////////////////");
-                    for(int perso = 0; perso < player.size(); perso++){
-                        System.out.println((player.get(perso)).toString());
-                        System.out.println("-------------------------");
-                    }
-                    System.out.println("//////////////////////");
+                    customPerso = false;
+                } else if(userChoice.equals("2")) {
+                    ShowPlayers(player);
                 }
             }
         } 
     }
+
+
+    static void ShowPlayers(ArrayList playerList) {
+        System.out.println("//////////////////////");
+
+        for(int i = 0; i < playerList.size(); i++) {
+            System.out.println((playerList.get(i)).getClass().getName());
+            System.out.println((playerList.get(i)).toString());
+            System.out.println("-------------------------");
+        }
+
+        System.out.println("//////////////////////");
+    }
+
 }

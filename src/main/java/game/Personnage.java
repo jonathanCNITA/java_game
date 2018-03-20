@@ -1,3 +1,20 @@
+/**
+ * Personnage est une classe 'abstract' elle defifinit les attributs commun 
+ * des personnages du jeu :
+ * <ul>
+ * <li>name: nom du personnage</li>
+ * <li>img: lien vers l'image du personnage</li>
+ * <li>life: nombre de points de vie du personnage</li>
+ * <li>attack: Puissance d'attaque du personnage</li>
+ * </ul>
+ * 
+ * </p>
+ * Le setter setLife prend soin de mettre des valeurs cohérentes afin d'éviter des combats impossibles
+ * </p>
+ * @author jonathanCNITA
+ * @version 1
+ */
+
 package game;
 
 public abstract class Personnage {
@@ -5,14 +22,20 @@ public abstract class Personnage {
     protected String img = "No image ref";
     protected int life = 100;
     protected int attack = 10;
-    private String[] arme = new String[3];
-    private int[] force = new int[3];
-    private int armIndex = 0;
+    protected String[] arme = new String[3];
+    protected int[] force = new int[3];
+    protected int armIndex = 0;
     
+    /** 
+     * method 'setter' qui modifie le nom du personnage 
+     */
     public void setName(String userName) {
         this.name = userName;
     }
 
+    /** 
+     * method 'getter' qui retourne le nom du personnage 
+     */
     public String getName() {
         return this.name;
     }
@@ -26,6 +49,11 @@ public abstract class Personnage {
     }
     
     public void setLife(int newLife) {
+        if (newLife > 100) {
+            newLife = 100;
+        } else if (newLife < 1) {
+            newLife = 1;
+        }
         this.life = newLife;
     }
 
@@ -73,4 +101,5 @@ public abstract class Personnage {
             System.out.println("Vous avez Ateint le maximum d'armes");
         }
     }
+
 }

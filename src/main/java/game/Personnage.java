@@ -56,12 +56,12 @@ public abstract class Personnage {
     }
 
     public String toString() {
-        return "Name : " + this.name + 
-        " Image : " + this.img + 
-        " Life : " + this.life + 
-        " Attack : " + this.attack +
-        " Arme 1 nom: " + this.arme[0] +
-        " Arme 1 force: " + this.arme[0];
+        return "Name : " + this.name + "\n" +
+        "Image : " + this.img + "\n" +
+        "Life : " + this.life + "\n" +
+        "Attack : " + this.attack + "\n" +
+        "Arme 1 nom: " + this.arme[0] + "\n" +
+        "Arme 1 force: " + this.force[0];
     }
 
     public void addWeapon(String weaponName, int weaponPower) {

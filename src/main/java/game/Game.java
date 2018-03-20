@@ -10,9 +10,9 @@ public class Game {
         String userChoice;
         Boolean custom = true;
 
-        for( int i = 0; i < 3; i++) {
+        for( int i = 0; i < player.length; i++) {
             custom = true; 
-            System.out.println("Choisissez un personnage !");
+            System.out.println("Choisissez un personnage !" +"(" + i + ")");
             System.out.println("1 -Warrior 2 -Magician");
             userChoice = scannerInput.nextLine();
             if(userChoice.equals("1") ) {
@@ -64,6 +64,7 @@ public class Game {
                     custom = false;
                 }
             }
+
         }
             
         for(int i = 0; i < 3; i++){

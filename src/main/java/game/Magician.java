@@ -1,7 +1,8 @@
 package game;
 
 public class Magician extends Personnage {
-     
+    Sort sort = new Sort();
+
     public Magician() {
         
     }
@@ -18,6 +19,6 @@ public class Magician extends Personnage {
     }
 
     public String toString() {
-        return "MAGICIAN: \n" + super.toString();
+        return "MAGICIAN: \n" + super.toString() + this.sort.toString();
     }
 }

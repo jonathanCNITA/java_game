@@ -11,11 +11,11 @@ public class Warrior extends Personnage {
         this.setName(name);
     }
 
-    public Warrior(String name, String imageLink, int newLife, int newAttack) {
+    public Warrior(String name, String url, int life, int attack) {
         this.setName(name);
-        this.setImg(imageLink);
-        this.setLife(newLife);
-        this.setAttack(newAttack);
+        this.setImg(url);
+        this.setLife(life);
+        this.setAttack(attack);
     }
 
     public String toString() {

@@ -14,7 +14,7 @@ public class Game {
         int playerToModify = 0;
         int life, attack, type = 0;
         String nom, img;
-        
+
         while ( playGame ) {
             if (!modifyPlayer) {
                 System.out.println("Créer un type de personnage:\n1 Guerrier\n2 Magicien");
@@ -38,6 +38,7 @@ public class Game {
                 players.get(playerToModify).setImg(img);
                 players.get(playerToModify).setLife(life);
                 players.get(playerToModify).setAttack(attack);
+                modifyPlayer = false;
                 System.out.println("Votre personnage à été modifié");
             } else if(type == 1) {
                 players.add(new Warrior(nom, img, life, attack));
@@ -71,6 +72,7 @@ public class Game {
         System.out.println("//////////////////////");
         System.out.println("Nombre de personnages: " + listOfObject.size());
         for(int i = 0; i < listOfObject.size(); i++) {
+        System.out.println("Numero ref: " + i);
         System.out.println((listOfObject.get(i)).toString());
         System.out.println("-------------------------");
         }

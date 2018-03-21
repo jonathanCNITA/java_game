@@ -15,6 +15,6 @@ public class Magician extends Personnage {
     }
 
     public String toString() {
-        return "Magician: \n" + super.toString();
+        return "MAGICIAN: \n" + super.toString();
     }
 }

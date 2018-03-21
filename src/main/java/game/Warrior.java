@@ -19,10 +19,6 @@ public class Warrior extends Personnage {
     }
 
     public String toString() {
-        return "Type: Warrior\n" +  
-        "Name : " + this.name + "\n" +
-        "Image : " + this.img + "\n" +
-        "Life : " + this.life + "\n" +
-        "Attack : " + this.attack + "\n";
+        return "WARRIOR: \n" + super.toString();
     }
 }

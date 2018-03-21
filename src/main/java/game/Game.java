@@ -35,7 +35,7 @@ public class Game {
             }
 
             Boolean options = true;
-            while( options ) {
+            while ( options ) {
                 System.out.println("Que voulez vous faire ensuite?\n1 Creér un autre personnage\n2 Lister tous les personnages\n3 Quitter le jeu");
                 int choice = Integer.parseInt(scannerInput.nextLine());
                 if (choice == 1) {
@@ -55,7 +55,6 @@ public class Game {
         System.out.println("//////////////////////");
         System.out.println("Nombre de personnages: " + listOfObject.size());
         for(int i = 0; i < listOfObject.size(); i++) {
-        System.out.println((listOfObject.get(i)).getClass().getName());
         System.out.println((listOfObject.get(i)).toString());
         System.out.println("-------------------------");
         }

@@ -19,8 +19,6 @@ public class Magician extends Personnage {
         "Name : " + this.name + "\n" +
         "Image : " + this.img + "\n" +
         "Life : " + this.life + "\n" +
-        "Attack : " + this.attack + "\n" +
-        "Arme 1 nom: " + this.arme[0] + "\n" +
-        "Arme 1 force: " + this.force[0];
+        "Attack : " + this.attack + "\n";
     }
 }

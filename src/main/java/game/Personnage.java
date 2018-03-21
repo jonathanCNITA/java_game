@@ -18,13 +18,10 @@
 package game;
 
 public abstract class Personnage {
-    protected String name = "none";
+    protected String name = "Unamed";
     protected String img = "No image ref";
     protected int life = 100;
     protected int attack = 10;
-    protected String[] arme = new String[3];
-    protected int[] force = new int[3];
-    protected int armIndex = 0;
     
     /** 
      * method 'setter' qui modifie le nom du personnage 
@@ -49,11 +46,6 @@ public abstract class Personnage {
     }
     
     public void setLife(int newLife) {
-        if (newLife > 100) {
-            newLife = 100;
-        } else if (newLife < 1) {
-            newLife = 1;
-        }
         this.life = newLife;
     }
 
@@ -69,37 +61,12 @@ public abstract class Personnage {
         return this.attack;
     }
 
-    public void decreaseLife(int attackPower) {
-        this.life -= attackPower;
-        if (this.life < 0) {
-            this.life =  0;
-        } 
-    }
-
-    public void increaseLife(int energy) {
-        this.life += energy; 
-        if (this.life > 100) {
-            this.life = 100;
-        }
-    }
-
     public String toString() {
         return "Name : " + this.name + "\n" +
         "Image : " + this.img + "\n" +
         "Life : " + this.life + "\n" +
-        "Attack : " + this.attack + "\n" +
-        "Arme 1 nom: " + this.arme[0] + "\n" +
-        "Arme 1 force: " + this.force[0];
-    }
-
-    public void addWeapon(String weaponName, int weaponPower) {
-        this.arme[armIndex] = weaponName;
-        this.force[armIndex] = weaponPower;
-        armIndex++;
-        if (armIndex > 3) {
-            armIndex = 0;
-            System.out.println("Vous avez Ateint le maximum d'armes");
-        }
+        "Attack : " + this.attack + "\n";
+    
     }
 
 }

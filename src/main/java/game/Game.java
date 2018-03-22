@@ -8,7 +8,7 @@ public class Game {
        private static Scanner scannerInput = new Scanner(System.in);
        private static ArrayList<Personnage> players = new ArrayList<Personnage>();
        private static Boolean playGame = true;
-       private static Boolean modifyPersonnage = false;
+       private static Boolean updatePersonnage = false;
        private static int indexPersonnage = 0;
        private static int life, attack, type = 0;
        private static String nom, img;
@@ -21,7 +21,7 @@ public class Game {
         while ( playGame ) 
         {
             createPersonnage();
-            if (modifyPersonnage) 
+            if (updatePersonnage) 
             {
                 modifPersonnage();
             }
@@ -71,7 +71,7 @@ public class Game {
                     type = 2;
                 }
                 if (indexPersonnage < players.size()) {
-                    modifyPersonnage = true;
+                    updatePersonnage = true;
                     options = false;
                 }
             } 
@@ -86,7 +86,7 @@ public class Game {
 
     private static void createPersonnage()
     {
-        if (!modifyPersonnage) 
+        if (!updatePersonnage) 
         {
             System.out.println("Créer un type de personnage:\n1 Guerrier\n2 Magicien");
             type = Integer.parseInt(scannerInput.nextLine());
@@ -114,7 +114,7 @@ public class Game {
             scannerInput.nextLine();
     
             w = new Weapon(nomArme, power);
-            if (!modifyPersonnage) 
+            if (!updatePersonnage) 
             {
                 players.add(new Warrior(nom, img, life, attack, w));
             }
@@ -129,9 +129,9 @@ public class Game {
             scannerInput.nextLine();
     
             s = new Sort(nomSort, powerSort);
-            if (!modifyPersonnage) 
+            if (!updatePersonnage) 
             {
-                players.add(new Magician(nom, img, life, attack));
+                players.add(new Magician(nom, img, life, attack, s));
             }
         }
     }
@@ -145,7 +145,7 @@ public class Game {
         if(type == 1) 
         {
            ((Warrior)players.get(indexPersonnage)).setArmes(w);
-            modifyPersonnage = false;
+            updatePersonnage = false;
             System.out.println("Votre personnage à été modifié");
         }
     }

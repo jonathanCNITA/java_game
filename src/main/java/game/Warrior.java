@@ -1,7 +1,7 @@
 package game;
 
 public class Warrior extends Personnage {
-    Weapon armes = new Weapon();
+    Weapon arme = new Weapon();
 
     public Warrior() {
     
@@ -20,15 +20,15 @@ public class Warrior extends Personnage {
     }
 
 
-    public void setArmes(Weapon arme) {
-        this.armes = arme;
+    public void setArmes(Weapon newWeapon) {
+        this.arme = newWeapon;
     }
 
     public String getArmes() {
-        return this.armes.getName();
+        return this.arme.getName();
     }
 
     public String toString() {
-        return "WARRIOR: \n" + super.toString() + this.armes.toString();
+        return "WARRIOR: \n" + super.toString() + this.arme.toString();
     }
 }
